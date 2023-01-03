@@ -16,7 +16,7 @@ h2 {
     font-size: 27px;
     font-family: 'Unbounded';
 }
-footer {
+footer { 
     position: absolute;
     margin-top: 1160px;
     margin-left: 2390px;
@@ -93,7 +93,7 @@ body {
     background: none;
 }
 
-#player1 {
+#player {
     position: absolute;
     margin-top: 970px;
     margin-right: 520px;
