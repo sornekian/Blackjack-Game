@@ -1,68 +1,29 @@
-// deck
-const faces = ['A', 'K', 'Q', 'J', '10', '09', '08', '07', '06', '05', '04', '03', '02'];
-const suits = ['d', 'h', 'c', 's'];
-let multipleDecks = [];
-// contestants
-const dealer = document.getElementById("dealer");
-const player = document.getElementById("player");
-let dealerHand = [];
-let playerHand = [];
-// buttons
-const hit = document.getElementById("hit");
-const stay = document.getElementById("stay");
-const button_container = document.getElementById("button-container")
-const start_game = document.getElementById("start");
+function createDeck() {
+    var values = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
+    var suits = ['s', 'h', 'c', 'd'];
+    var deck = [];
 
 
-
-const generateDeck = () => {
-    const deck = [];
-    faces.forEach((face) => {
-        suits.forEach((suit) => {
-            const card = face + suit;
-            deck.push(card);
-        })
-    })
-    return deck;
+for (var suitCounter = 0; suitCounter < 4; suitCounter++) {
+    for (var valueCounter = 0; valueCounter < 13; valueCounter++) {
+        deck.push(values[valueCounter] + suits[suitCounter]);
+}}
+return deck;
 }
+function shuffleDeck(deck) {
+    for(var i = 0; i < 52; i++) {
+        var newCard = deck[i];
+        var randomCard = Math.floor(Math.random() * 52);
+        deck[i] = deck[randomCard];
+        deck[randomCard] = newCard;
+}}
 
-const shuffleDecks = (numb) => {
-    for (let i = 0; i < numb; i++) {
-        const newDeck = generateDeck ();
-        multipleDecks = [...multipleDecks, ...newDeck];
-    }
-    
-
-}
-
-const selectRandomCard = () => {
-    const randomCards = Math.floor(Math.random() * multipleDecks.length);
-    const card = multipleDecks[randomCard];
-    multipleDecks.splice(randomCard)
-    return card;
-}
+console.log(deck)
 
 
 
+hit.addEventListener('click', hitPlayer);
+stay.addEventListener('click', hitDealer);
+// start.addEventListener('click', resetGame)
 
-shuffleDecks(2);
-selectRandomCard();
-
-
-
-
-
-
-
-// goals: 
-// generate deck of cards -> 52 which is 13 * 4
-// shuffle deck
-// select a random card
-// deal hands to dealer and player 1
-// hide one of the dealer cards
-// make the hit or stay options
-// make the hit button add 1 card
-// make the stay option transfer to the dealers turn
-// determine the winner
-// show message of who won and why
 
