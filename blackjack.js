@@ -1,29 +1,51 @@
-function createDeck() {
-    var values = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
-    var suits = ['s', 'h', 'c', 'd'];
-    var deck = [];
 
+    const faces = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
+    const suits = ['s', 'h', 'c', 'd'];
+    let deck = [];
 
-for (var suitCounter = 0; suitCounter < 4; suitCounter++) {
-    for (var valueCounter = 0; valueCounter < 13; valueCounter++) {
-        deck.push(values[valueCounter] + suits[suitCounter]);
-}}
-return deck;
-}
-function shuffleDeck(deck) {
-    for(var i = 0; i < 52; i++) {
+    function generateDeck() {
+        suits.forEach(suit => {
+            faces.forEach(face => {
+                 deck.push({
+                    'face': suit + face,
+                })
+            })
+        })
+    }
+
+function shuffleDeck() {
+    for (var i = 0; i < 52; i++) {
         var newCard = deck[i];
         var randomCard = Math.floor(Math.random() * 52);
         deck[i] = deck[randomCard];
         deck[randomCard] = newCard;
 }}
+generateDeck()
+shuffleDeck()
 
-console.log(deck)
+function renderDeck() {
+      const cardEl = document.createElement('div')
+      cardEl.className = 'card ' + deck[0].face
+      document.querySelector("#player").append(cardEl)
+
+      cardEl2 = document.createElement('div')
+      cardEl2.className = 'card back'
+      document.querySelector("#dealer").append(cardEl2)
+
+      const cardEl3 = document.createElement('div')
+      cardEl3.className = 'card ' + deck[2].face
+      document.querySelector("#player").append(cardEl3)
+
+      cardEl4 = document.createElement('div')
+      cardEl4.className = 'card ' + deck[3].face
+      document.querySelector("#dealer").append(cardEl4)
 
 
+}
 
-hit.addEventListener('click', hitPlayer);
-stay.addEventListener('click', hitDealer);
+renderDeck()
+// hit.addEventListener('click', hitPlayer);
+// stay.addEventListener('click', hitDealer);
 // start.addEventListener('click', resetGame)
 
-
+console.log(deck)
