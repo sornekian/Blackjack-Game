@@ -14,11 +14,12 @@ function generateDeck() {
          })
      })
  }
-    const cardValue = {
+    let cardValue = {
+        '10': 10,
         'J': 10,
         'Q': 10,
-        'K': 10,
-        'A': 1 || 11,
+        'K': 10,  
+        'A': 11,
         '02': 2,
         '03': 3,
         '04': 4, 
@@ -26,11 +27,14 @@ function generateDeck() {
         '06': 6,
         '07': 7,
         '08': 8,
-        '09': 9,
-        '10': 10
+        '09': 9, }
 
-    }
-
+    //  let sum = 0;
+    //  for (let i = 0; i < cardValue.length; i++) {
+    //     sum += cardValue[i];
+    //  }
+    
+    
 
 // passing out the deck
 function dealCard() {
@@ -51,7 +55,7 @@ function renderDeck() {
       cardEl.className = dealCard().face
       document.querySelector("#player").append(cardEl)
 
-      cardEl2 = document.createElement('div')
+      const cardEl2 = document.createElement('div')
       cardEl2.className = 'card back'
       document.querySelector("#dealer").append(cardEl2)
 
@@ -59,7 +63,7 @@ function renderDeck() {
       cardEl3.className = dealCard().face
       document.querySelector("#player").append(cardEl3)
 
-      cardEl4 = document.createElement('div')
+      const cardEl4 = document.createElement('div')
       cardEl4.className = dealCard().face
       document.querySelector("#dealer").append(cardEl4)
 
@@ -71,26 +75,35 @@ function hitPlayer() {
     const cardEl5 = document.createElement('div')
     cardEl5.className = dealCard().face
     document.querySelector("#player").append(cardEl5)
-
+    
 }
-function stayPlayer() {
+function hitDealer() {
     const cardEl6 = document.createElement('div')
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
+
 }
 
 hit.addEventListener('click', hitPlayer);
-hit.addEventListener('click', stayPlayer);
+stay.addEventListener('click', hitDealer);
 
+function totalValue() {
+    if (cardValue > 21) {
+        window.alert("Get Busted!")
+    }
+    console.log(cardValue)
+    if (cardValue === 21) {
+        window.alert("Congratulations! You've got Blackjack!")
+    }
+}
+totalValue()
 // starting the game
-function startGame() {
+// function startGame() {
 
-}
+// }
 
-// making stay pass to dealer
-function stay() {
 
-}
+
 
 
 // hit.addEventListener('click', hitPlayer);
