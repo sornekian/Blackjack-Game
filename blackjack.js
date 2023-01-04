@@ -2,18 +2,7 @@
     const faces = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
     const suits = ['s', 'h', 'c', 'd'];
     let deck = [];
-// creating the deck
-function generateDeck() {
-    console.log("generating deck")
-    suits.forEach(suit => {
-        faces.forEach(face => {
-             deck.push({
-                 'face': `card ${suit}${face}`,
-             })
-                // console.log(deck[deck.length - 1])
-         })
-     })
- }
+
     let cardValue = {
         '10': 10,
         'J': 10,
@@ -27,7 +16,22 @@ function generateDeck() {
         '06': 6,
         '07': 7,
         '08': 8,
-        '09': 9, }
+        '09': 9 
+    }
+// creating the deck
+function generateDeck() {
+    console.log("generating deck")
+    suits.forEach(suit => {
+        faces.forEach(face => {
+             deck.push({
+                 'face': `card ${suit}${face}`,
+                 'cardVal': cardValue[face]
+                 
+             })
+                // console.log(deck[deck.length - 1])
+         })
+     })     
+ }
 
     //  let sum = 0;
     //  for (let i = 0; i < cardValue.length; i++) {
@@ -35,7 +39,6 @@ function generateDeck() {
     //  }
     
     
-
 // passing out the deck
 function dealCard() {
     // for (let i = 0; i < 52; i++) {
@@ -94,14 +97,13 @@ function totalValue() {
     console.log(cardValue)
     if (cardValue === 21) {
         window.alert("Congratulations! You've got Blackjack!")
-    }
-}
+    } 
+} 
 totalValue()
 // starting the game
 // function startGame() {
 
 // }
-
 
 
 
