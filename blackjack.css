@@ -90,23 +90,31 @@ body {
 #player {
     position: absolute;
     margin-top: 840px;
-    margin-right: 420px;
+    margin-right: 250px;
     font-family: 'Dancing Script';
     font-size: 50px;
     display: flex;
+    color: rgb(49, 66, 198);
     
     
 }
 #dealer {
     position: absolute;
     margin-top: 220px;
-    margin-right: 350px;
+    margin-right: 250px;
     font-family: 'Dancing Script';
     font-size: 50px;
     display: flex;
-    
+    /* justify-content: space-around;
+    flex-wrap: wrap; */
+    color: rgb(49, 66, 198);
 }
 
+.card {
+    height: 2.9em;
+    width: 2.3em;
+    background-color: rgb(205, 206, 229);
+}
 
 
 
