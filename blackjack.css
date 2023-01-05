@@ -5,8 +5,7 @@ h1 {
     position: absolute;
     font-size: 65px;
     margin-top: auto;
-    font-family: 'Unbounded';
-    
+    font-family: 'Unbounded';    
 }
 h2 {
     text-align: center;
@@ -16,7 +15,6 @@ h2 {
     font-size: 27px;
     font-family: 'Unbounded';
 }
-
 #table-border {
     border-color: #ffffff; 
     border-style: ridge;
@@ -27,11 +25,9 @@ h2 {
 #table {
     height: 700px;
     width: 1450px;
-    /* background-color: maroon; */
     border-radius: 75%;
     margin-top: 150px;    
 }
-
 body {
     justify-content: center;
     display: flex;
@@ -40,14 +36,13 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
-
 #hit {
     height: 45px;
     width: 75px;
     color: rgb(71, 204, 0);
     background-color: rgb(86, 14, 14);
     margin-top: 865px;
-    margin-right: 1050px;
+    /* margin-right: 1050px; */
     position: absolute;
     font-weight: bold;
     font-family: "Unbounded";
@@ -60,12 +55,11 @@ body {
     color: rgb(255, 1, 1);
     background-color: rgb(86, 14, 14);
     margin-top: 910px;
-    margin-right: 1050px;
+    /* margin-right: 1050px; */
     position: absolute;
     font-weight: bold;
     font-family: "Unbounded";
-    font-size: 20px;
-    
+    font-size: 20px;    
 }
 #start {
     height: 60px;
@@ -84,24 +78,21 @@ body {
 }
 #button-container {
     position: absolute;
-    margin-left: 650px;
-
+    margin-left: 900px;
 }
 #player {
     position: absolute;
     margin-top: 840px;
-    margin-right: 250px;
+    margin-right: 130px;
     font-family: 'Dancing Script';
     font-size: 50px;
     display: flex;
-    color: rgb(49, 66, 198);
-    
-    
+    color: rgb(49, 66, 198);    
 }
 #dealer {
     position: absolute;
-    margin-top: 220px;
-    margin-right: 250px;
+    margin-top: 265px;
+    margin-right: 90px;
     font-family: 'Dancing Script';
     font-size: 50px;
     display: flex;
@@ -109,7 +100,6 @@ body {
     flex-wrap: wrap; */
     color: rgb(49, 66, 198);
 }
-
 .card {
     height: 2.9em;
     width: 2.3em;
