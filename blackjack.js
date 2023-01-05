@@ -136,9 +136,11 @@ function compareHands() {
     } else if (dealerSum === 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
     } else if (dealerSum === 21 && playerSum === 21) {
-        messageEl.innerHTMLage = "Holy Cow, It's a Push!"
-    } else if (dealerSum < playerSum) {
+        messageEl.innerHTML = "Holy Cow, It's a Push!"
+    } else if (dealerSum < 21 && dealerSum > playerSum) {
         messageEl.innerHTML = "Congratulations! You Win!"
+    } else if (dealerSum === playerSum) {
+        messageEl.innerHTML = "Holy Cow, It's a Push!"
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
     }
