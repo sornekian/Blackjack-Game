@@ -3,7 +3,6 @@ const faces = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', '
 const suits = ['s', 'h', 'c', 'd'];
 let deck = [];
 const messageEl = document.querySelector("h4")
-
 let playerSum = 0;
 let dealerSum = 0;
 
@@ -16,7 +15,6 @@ function generateDeck() {
         })
     })
 }
-
 let playerHand = []
 let dealerHand = []
 
@@ -51,7 +49,6 @@ function renderDeck() {
     playerHand.push(cardEl3.className)
     dealerHand.push(cardEl4.className)
     dealerHand.push(cardEl4.className)
-
 }
 renderDeck()
 
@@ -86,6 +83,7 @@ function hitPlayer() {
 }
 function hitDealer() {
     const cardEl6 = document.createElement('div')
+    
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
     dealerHand.push(cardEl6.className)
@@ -95,36 +93,25 @@ function hitDealer() {
         }
     }
     if (counter > 0) {
-        // dealerHand[dealerHand.length - 1] = dealerHand[dealerHand.length - 1].substring(6, dealerHand[dealerHand.length - 1].length)
     }
     for (i = 0; i < dealerHand.length; i++) {
         if (typeof (dealerHand[i]) === "string") {
             console.log(dealerHand)
-            // console.log(dealerHand[i][dealerHand[i].length - 1])
             dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
-
-            // console.log(typeof(dealerHand[i][dealerHand[i].length - 1]))
-            // console.log(dealerHand)
             if (dealerHand[i] === "A") {
                 dealerHand[i] = 11
             }
             if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
                 dealerHand[i] = 10
             }
-
-            // console.log((typeof(dealerHand[i])))
             dealerHand[i] = parseInt(dealerHand[i])
-            // console.log((typeof(dealerHand[i])))
-
         }
-        // console.log(dealerHand[i])
     }
     dealerHand.forEach(function (cardValue) {
         dealerSum += cardValue
     })
     compareHands()
 }
-
 function compareHands() {
     console.log("playerSum: ", playerSum, " dealerSum: ", dealerSum)
     if (playerSum === 21) {
@@ -144,9 +131,15 @@ function compareHands() {
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
     }
-
 }
+
+function resetGame() {
+    playerHand.pop()
+    dealerHand.pop()
+    renderDeck()
+}
+
 
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
-// start.addEventListener('click', resetGame);
+start.addEventListener('click', resetGame);
