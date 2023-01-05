@@ -74,24 +74,15 @@ function hitPlayer() {
         if (playerHand[i] === "A") {
             playerHand[i] = 11
         }
-        if (playerHand[i] === "K") {
-            playerHand[i] = 10
-        }
-        if (playerHand[i] === "Q") {
-            playerHand[i] = 10
-        }
-        if (playerHand[i] === "J") {
-            playerHand[i] = 10
-        }
+        if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
+            dealerHand[i] = 10
+        }        
         playerHand[i] = parseInt(playerHand[i], 10)
     }
-
     playerHand.forEach(function (cardValue) {
         playerSum += cardValue
     })
-    // console.log(sum)
     counter++
-    // console.log(dealerHand)
 }
 function hitDealer() {
     const cardEl6 = document.createElement('div')
@@ -128,19 +119,16 @@ function hitDealer() {
         }
         // console.log(dealerHand[i])
     }
-
     dealerHand.forEach(function (cardValue) {
         dealerSum += cardValue
     })
-    // console.log(sum)
     compareHands()
-    // counter++
 }
 
 function compareHands() {
     console.log("playerSum: ", playerSum, " dealerSum: ", dealerSum)
     if (playerSum === 21) {
-        messageEl.innerHTML = "Blackjack!"
+        messageEl.innerHTML = "Blackjack! Return of the Jack!"
     } else if (playerSum > 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
     } else if (dealerSum > 21) {
@@ -156,12 +144,6 @@ function compareHands() {
     }
 
 }
-// player over
-// dealer over
-// who's closer to 21
-
-
-
 
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
