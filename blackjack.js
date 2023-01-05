@@ -47,14 +47,13 @@ function renderDeck() {
 
     playerHand.push(cardEl.className)
     playerHand.push(cardEl3.className)
-    dealerHand.push(cardEl4.className)
+    dealerHand.push(cardEl2.className)
     dealerHand.push(cardEl4.className)
 }
-renderDeck()
+// renderDeck()
 
 let counter = 0;
 function hitPlayer() {
-    // console.log(counter)
     const cardEl5 = document.createElement('div')
     cardEl5.className = dealCard().face
     document.querySelector("#player").append(cardEl5)
@@ -74,7 +73,7 @@ function hitPlayer() {
         if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
             dealerHand[i] = 10
         }        
-        playerHand[i] = parseInt(playerHand[i], 10)
+        playerHand[i] = parseInt(playerHand[i])
     }
     playerHand.forEach(function (cardValue) {
         playerSum += cardValue
@@ -82,8 +81,7 @@ function hitPlayer() {
     counter++
 }
 function hitDealer() {
-    const cardEl6 = document.createElement('div')
-    
+    const cardEl6 = document.createElement('div')  
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
     dealerHand.push(cardEl6.className)
@@ -116,27 +114,36 @@ function compareHands() {
     console.log("playerSum: ", playerSum, " dealerSum: ", dealerSum)
     if (playerSum === 21) {
         messageEl.innerHTML = "Blackjack! Return of the Jack!"
+        resetHands()
     } else if (playerSum > 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
+        resetHands()
     } else if (dealerSum > 21) {
         messageEl.innerHTML = "Congratulations! You Win!"
+        resetHands();
     } else if (dealerSum === 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
+        resetHands();
     } else if (dealerSum === 21 && playerSum === 21) {
         messageEl.innerHTML = "Holy Cow, It's a Push!"
+        resetHands();
     } else if (dealerSum < 21 && dealerSum > playerSum) {
         messageEl.innerHTML = "Congratulations! You Win!"
+        resetHands();
     } else if (dealerSum === playerSum) {
         messageEl.innerHTML = "Holy Cow, It's a Push!"
+        resetHands();
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
+        resetHands();
     }
 }
-
+function resetHands() {
+    playerHand = [];
+    dealerHand = [];
+}
 function resetGame() {
-    playerHand.pop()
-    dealerHand.pop()
-    renderDeck()
+    renderDeck();
 }
 
 
