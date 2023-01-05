@@ -3,21 +3,21 @@
     const suits = ['s', 'h', 'c', 'd'];
     let deck = [];
 
-    let cardValue = {
-        '10': 10,
-        'J': 10,
-        'Q': 10,
-        'K': 10,  
-        'A': 11,
-        '02': 2,
-        '03': 3,
-        '04': 4, 
-        '05': 5,
-        '06': 6,
-        '07': 7,
-        '08': 8,
-        '09': 9 
-    }
+    // let cardValue = {
+    //     '10': 10,
+    //     'J': 10,
+    //     'Q': 10,
+    //     'K': 10,  
+    //     'A': 11,
+    //     '02': 2,
+    //     '03': 3,
+    //     '04': 4, 
+    //     '05': 5,
+    //     '06': 6,
+    //     '07': 7,
+    //     '08': 8,
+    //     '09': 9 
+    // }
 // creating the deck
 function generateDeck() {
     console.log("generating deck")
@@ -25,7 +25,7 @@ function generateDeck() {
         faces.forEach(face => {
              deck.push({
                  'face': `card ${suit}${face}`,
-                 'cardVal': cardValue[face]
+                //  'cardVal': cardValue[face]
                  
              })
                 // console.log(deck[deck.length - 1])
@@ -33,18 +33,15 @@ function generateDeck() {
      })     
  }
 
-    //  let sum = 0;
-    //  for (let i = 0; i < cardValue.length; i++) {
-    //     sum += cardValue[i];
-    //  }
-    
-    
-// passing out the deck
+let playerHand = []
+let dealerHand = []
+
 function dealCard() {
     // for (let i = 0; i < 52; i++) {
     const randomCard = Math.floor(Math.random() * (deck.length - 1));
-    console.log(randomCard)
+    // console.log(randomCard)
     const newCard = deck[randomCard];
+    // playerHand.push(deck[randomCard]);
     deck.splice(randomCard, 1);
     if(deck.length === 0) generateDeck();
     return newCard;
@@ -52,11 +49,12 @@ function dealCard() {
 // }} 
 generateDeck()
 dealCard()
-// passing out the cards to each player
+
 function renderDeck() {
       const cardEl = document.createElement('div')
       cardEl.className = dealCard().face
       document.querySelector("#player").append(cardEl)
+      
 
       const cardEl2 = document.createElement('div')
       cardEl2.className = 'card back'
@@ -70,46 +68,100 @@ function renderDeck() {
       cardEl4.className = dealCard().face
       document.querySelector("#dealer").append(cardEl4)
 
+      playerHand.push(cardEl.className)
+      playerHand.push(cardEl3.className)
+
 }
 renderDeck()
-// making the hit button add one card each time
 
+let counter = 0; 
 function hitPlayer() {
+    console.log(counter)
     const cardEl5 = document.createElement('div')
     cardEl5.className = dealCard().face
     document.querySelector("#player").append(cardEl5)
-    
-}
+    playerHand.push(cardEl5.className)
+    if (counter === 0) {
+        for (i = 0; i < playerHand.length; i++) {
+        playerHand[i] = playerHand[i].substring(6, playerHand[i].length)
+        }
+    }
+    if (counter > 0) {
+        playerHand[playerHand.length - 1] = playerHand[playerHand.length - 1].substring(6, playerHand[playerHand.length - 1].length)
+    }
+
+    for (i = 0; i < playerHand.length; i++) {
+       if (playerHand[i] === "A") {
+        playerHand[i] = 11
+       } 
+       if (playerHand[i] === "K") {
+        playerHand[i] = 10
+       } 
+       if (playerHand[i] === "Q") {
+        playerHand[i] = 10
+       } 
+       if (playerHand[i] === "J") {
+        playerHand[i] = 10
+       } 
+       playerHand[i] = parseInt(playerHand[i], 10)
+    } 
+    let sum = 0
+    playerHand.forEach(function(cardValue) {
+        sum += cardValue
+    }) 
+    console.log(sum)
+    counter++
+    console.log(playerHand)
+} 
+
 function hitDealer() {
     const cardEl6 = document.createElement('div')
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
+    dealerHand.push(cardEl6.className)
+    if (counter === 0) {
+        for (i = 0; i < dealerHand.length; i++) {
+            dealerHand[i] = dealerHand[i].substring(6, dealerHand[i].length)
+        }
+    }
+    if (counter > 0) {
+        dealerHand[dealerHand.length - 1] = dealerHand[dealerHand.length - 1].substring(6, dealerHand[dealerHand.length - 1].length)
+    }
 
+    for (i = 0; i < dealerHand.length; i++) {
+       if (dealerHand[i] === "A") {
+        dealerHand[i] = 11
+       } 
+       if (dealerHand[i] === "K") {
+        dealerHand[i] = 10
+       } 
+       if (dealerHand[i] === "Q") {
+        dealerHand[i] = 10
+       } 
+       if (dealerHand[i] === "J") {
+        dealerHand[i] = 10
+       } 
+       dealerHand[i] = parseInt(dealerHand[i], 10)
+    } 
+    let sum = 0
+    dealerHand.forEach(function(cardValue) {
+        sum += cardValue
+    }) 
+    console.log(sum)
+    counter++
+    console.log(dealerHand)
 }
 
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
 
-function totalValue() {
-    if (cardValue > 21) {
-        window.alert("Get Busted!")
-    }
-    console.log(cardValue)
-    if (cardValue === 21) {
-        window.alert("Congratulations! You've got Blackjack!")
-    } 
-} 
-totalValue()
+
+
 // starting the game
 // function startGame() {
 
 // }
 
-
-
-
-// hit.addEventListener('click', hitPlayer);
-// stay.addEventListener('click', hitDealer);
 // start.addEventListener('click', resetGame)
 
 console.log(deck)
