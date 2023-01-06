@@ -58,19 +58,11 @@ function hitPlayer() {
     playerHand.push(cardEl5.className)
     console.log(dealerHand)
 }
-function dealerCardStringToNum() {
-    for (i = 0; i < dealerHand.length; i++) {
-        if (typeof (dealerHand[i]) === "string") {
-            dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
-            if (dealerHand[i] === "A") {
-                dealerHand[i] = 11
-            }
-            if (dealerHand[i] === "K" || dealerHand[i] === "0" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
-                dealerHand[i] = 10
-            }
-            dealerHand[i] = parseInt(dealerHand[i])
-        }
-    }
+function hitDealer() {
+    const cardEl6 = document.createElement('div')
+    cardEl6.className = dealCard().face
+    document.querySelector("#dealer").append(cardEl6)
+    dealerHand.push(cardEl6.className)
 }
 function playerCardStringToNum() {
     for (i = 0; i < playerHand.length; i++) {
@@ -86,11 +78,19 @@ function playerCardStringToNum() {
         }
     }
 }
-function hitDealer() {
-    const cardEl6 = document.createElement('div')
-    cardEl6.className = dealCard().face
-    document.querySelector("#dealer").append(cardEl6)
-    dealerHand.push(cardEl6.className)
+function dealerCardStringToNum() {
+    for (i = 0; i < dealerHand.length; i++) {
+        if (typeof (dealerHand[i]) === "string") {
+            dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
+            if (dealerHand[i] === "A") {
+                dealerHand[i] = 11
+            }
+            if (dealerHand[i] === "K" || dealerHand[i] === "0" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
+                dealerHand[i] = 10
+            }
+            dealerHand[i] = parseInt(dealerHand[i])
+        }
+    }
 }
 function calcTotal() {
     dealerCardStringToNum();
@@ -127,14 +127,14 @@ function compareHands() {
     }
     messageEl1.innerHTML = `Player Total = ${playerSum}, Dealer Total = ${dealerSum}`
 }
-let resetGame = () => {
-    location.reload()
-}
 function startGame() {
     renderDeck();
 }
-finish.addEventListener('click', compareHands)
+let resetGame = () => {
+    location.reload()
+}
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
-restart.addEventListener('click', resetGame)
+finish.addEventListener('click', compareHands);
 start.addEventListener('click', startGame);
+restart.addEventListener('click', resetGame)
