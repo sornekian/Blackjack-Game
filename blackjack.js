@@ -1,4 +1,3 @@
-
 const faces = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', 'Q', 'K'];
 const suits = ['s', 'h', 'c', 'd'];
 let deck = [];
@@ -92,17 +91,6 @@ function hitDealer() {
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
     dealerHand.push(cardEl6.className)
-    // dealerCardStringToNum();
-    // playerCardStringToNum();
-    // console.log(playerSum)
-    // playerHand.forEach(function (cardValue) {
-    //     playerSum += cardValue
-    // })
-    // console.log(playerSum)
-    // dealerHand.forEach(function (cardValue) {
-    //     dealerSum += cardValue
-    // })
-    // compareHands()
 }
 function calcTotal() {
     dealerCardStringToNum();
@@ -122,39 +110,29 @@ function compareHands() {
     console.log("playerHand: ", playerHand, " dealerHand: ", dealerHand)
     if (playerSum === 21) {
         messageEl.innerHTML = "Blackjack! Return of the Jack!"
-        // setTimeout(resetGame, 10000);
     } else if (playerSum > 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
-        // setTimeout(resetGame, 10000);
     } else if (dealerSum > 21) {
         messageEl.innerHTML = "Congratulations! You Win!"
-        // setTimeout(resetGame, 10000);
     } else if (dealerSum === 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
-        // setTimeout(resetGame, 10000);
     } else if (dealerSum < 22 && dealerSum > playerSum) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
-        // setTimeout(resetGame, 10000);
     } else if (playerSum < 22 && playerSum > dealerSum) {
         messageEl.innerHTML = "Congratulations! You Win!"
-        // setTimeout(resetGame, 10000);
     } else if (dealerSum = playerSum) {
         messageEl.innerHTML = "Holy Cow, It's a Push!"
-        // setTimeout(resetGame, 10000);
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
-        // setTimeout(resetGame, 10000);
     }
     messageEl1.innerHTML = `Player Total = ${playerSum}, Dealer Total = ${dealerSum}`
 }
-
 let resetGame = () => {
     location.reload()
 }
 function startGame() {
     renderDeck();
 }
-
 finish.addEventListener('click', compareHands)
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
