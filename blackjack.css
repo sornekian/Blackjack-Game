@@ -75,7 +75,22 @@ body {
     color: rgb(1, 204, 255);
     background-color: rgb(86, 14, 14);
     margin-top: 80px;
-    margin-left: 390px;
+    margin-left: 290px;
+    position: absolute;
+    font-weight: bold;
+    font-family: "Unbounded";
+    font-size: 30px;
+    border: none;
+    padding: 0;
+    background: none;
+}
+#restart {
+    height: 60px;
+    text-align: relative;
+    color: rgb(1, 204, 255);
+    background-color: rgb(86, 14, 14);
+    margin-top: 160px;
+    margin-left: 290px;
     position: absolute;
     font-weight: bold;
     font-family: "Unbounded";

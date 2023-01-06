@@ -34,7 +34,7 @@ function renderDeck() {
     document.querySelector("#player").append(cardEl)
 
     const cardEl2 = document.createElement('div')
-    cardEl2.className = 'card back'
+    cardEl2.className = dealCard().face
     document.querySelector("#dealer").append(cardEl2)
 
     const cardEl3 = document.createElement('div')
@@ -50,7 +50,7 @@ function renderDeck() {
     dealerHand.push(cardEl2.className)
     dealerHand.push(cardEl4.className)
 }
-// renderDeck()
+
 
 let counter = 0;
 function hitPlayer() {
@@ -73,25 +73,16 @@ function hitPlayer() {
         if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
             dealerHand[i] = 10
         }        
-        playerHand[i] = parseInt(playerHand[i])
-    }
+        playerHand[i] = parseInt(playerHand[i], 10)
+    } 
+    console.log(playerSum)
     playerHand.forEach(function (cardValue) {
         playerSum += cardValue
-    })
+    }) 
+    console.log(playerSum)
     counter++
 }
-function hitDealer() {
-    const cardEl6 = document.createElement('div')  
-    cardEl6.className = dealCard().face
-    document.querySelector("#dealer").append(cardEl6)
-    dealerHand.push(cardEl6.className)
-    if (counter === 0) {
-        for (i = 0; i < dealerHand.length; i++) {
-            dealerHand[i] = dealerHand[i].substring(6, dealerHand[i].length)
-        }
-    }
-    if (counter > 0) {
-    }
+function cardStringToNum() {
     for (i = 0; i < dealerHand.length; i++) {
         if (typeof (dealerHand[i]) === "string") {
             console.log(dealerHand)
@@ -102,9 +93,39 @@ function hitDealer() {
             if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
                 dealerHand[i] = 10
             }
-            dealerHand[i] = parseInt(dealerHand[i])
+            dealerHand[i] = parseInt(dealerHand[i], 10)
         }
     }
+    console.log("enter card string", dealerHand)
+}
+
+
+function hitDealer() {
+    const cardEl6 = document.createElement('div')  
+    cardEl6.className = dealCard().face
+    document.querySelector("#dealer").append(cardEl6)
+    dealerHand.push(cardEl6.className)
+    //    if (counter === 0) {
+    //        for (i = 0; i < dealerHand.length; i++) {
+    //            dealerHand[i] = dealerHand[i].substring(6, dealerHand[i].length)
+    //         }
+    //     }
+    //     if (counter > 0) {
+    //     }
+        cardStringToNum();
+    // for (i = 0; i < dealerHand.length; i++) {
+    //     if (typeof (dealerHand[i]) === "string") {
+    //         console.log(dealerHand)
+    //         dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
+    //         if (dealerHand[i] === "A") {
+    //             dealerHand[i] = 11
+    //         }
+    //         if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
+    //             dealerHand[i] = 10
+    //         }
+    //         dealerHand[i] = parseInt(dealerHand[i], 10)
+    //     }
+    // }
     dealerHand.forEach(function (cardValue) {
         dealerSum += cardValue
     })
@@ -114,39 +135,39 @@ function compareHands() {
     console.log("playerSum: ", playerSum, " dealerSum: ", dealerSum)
     if (playerSum === 21) {
         messageEl.innerHTML = "Blackjack! Return of the Jack!"
-        resetHands()
+        // setTimeout(resetGame, 10000);
     } else if (playerSum > 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
-        resetHands()
+        // setTimeout(resetGame, 10000);
     } else if (dealerSum > 21) {
         messageEl.innerHTML = "Congratulations! You Win!"
-        resetHands();
+        // setTimeout(resetGame, 10000);
     } else if (dealerSum === 21) {
         messageEl.innerHTML = "You Lose! Dealer Wins!"
-        resetHands();
-    } else if (dealerSum === 21 && playerSum === 21) {
-        messageEl.innerHTML = "Holy Cow, It's a Push!"
-        resetHands();
-    } else if (dealerSum < 21 && dealerSum > playerSum) {
+        // setTimeout(resetGame, 10000);
+    } else if (dealerSum < 22 && dealerSum > playerSum) {
+        messageEl.innerHTML = "You Lose! Dealer Wins!"
+        // setTimeout(resetGame, 10000);
+    } else if (playerSum < 22 && playerSum > dealerSum) {
         messageEl.innerHTML = "Congratulations! You Win!"
-        resetHands();
-    } else if (dealerSum === playerSum) {
+        // setTimeout(resetGame, 10000);
+    } else if (dealerSum = playerSum) {
         messageEl.innerHTML = "Holy Cow, It's a Push!"
-        resetHands();
+        // setTimeout(resetGame, 10000);
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
-        resetHands();
-    }
+        // setTimeout(resetGame, 10000);
+    } 
+} 
+
+let resetGame = () => {
+    location.reload()
 }
-function resetHands() {
-    playerHand = [];
-    dealerHand = [];
-}
-function resetGame() {
+function startGame() {
     renderDeck();
 }
 
-
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
-start.addEventListener('click', resetGame);
+restart.addEventListener('click', resetGame)
+start.addEventListener('click', startGame);
