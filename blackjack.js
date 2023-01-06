@@ -3,6 +3,8 @@ const faces = ['A', '02', '03', '04', '05', '06', '07', '08', '09', '10', 'J', '
 const suits = ['s', 'h', 'c', 'd'];
 let deck = [];
 const messageEl = document.querySelector("h4")
+const messageEl1 = document.querySelector("h5")
+const doneEl = document.querySelector(".finish")
 let playerSum = 0;
 let dealerSum = 0;
 
@@ -50,89 +52,74 @@ function renderDeck() {
     dealerHand.push(cardEl2.className)
     dealerHand.push(cardEl4.className)
 }
-
-
-let counter = 0;
 function hitPlayer() {
     const cardEl5 = document.createElement('div')
     cardEl5.className = dealCard().face
     document.querySelector("#player").append(cardEl5)
     playerHand.push(cardEl5.className)
-    if (counter === 0) {
-        for (i = 0; i < playerHand.length; i++) {
-            playerHand[i] = playerHand[i].substring(6, playerHand[i].length)
-        }
-    }
-    if (counter > 0) {
-        playerHand[playerHand.length - 1] = playerHand[playerHand.length - 1].substring(6, playerHand[playerHand.length - 1].length)
-    }
-    for (i = 0; i < playerHand.length; i++) {
-        if (playerHand[i] === "A") {
-            playerHand[i] = 11
-        }
-        if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
-            dealerHand[i] = 10
-        }        
-        playerHand[i] = parseInt(playerHand[i], 10)
-    } 
-    console.log(playerSum)
-    playerHand.forEach(function (cardValue) {
-        playerSum += cardValue
-    }) 
-    console.log(playerSum)
-    counter++
+    console.log(dealerHand)
 }
-function cardStringToNum() {
+function dealerCardStringToNum() {
     for (i = 0; i < dealerHand.length; i++) {
         if (typeof (dealerHand[i]) === "string") {
-            console.log(dealerHand)
             dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
             if (dealerHand[i] === "A") {
                 dealerHand[i] = 11
             }
-            if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
+            if (dealerHand[i] === "K" || dealerHand[i] === "0" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
                 dealerHand[i] = 10
             }
-            dealerHand[i] = parseInt(dealerHand[i], 10)
+            dealerHand[i] = parseInt(dealerHand[i])
         }
     }
-    console.log("enter card string", dealerHand)
 }
-
-
+function playerCardStringToNum() {
+    for (i = 0; i < playerHand.length; i++) {
+        if (typeof (playerHand[i]) === "string") {
+            playerHand[i] = playerHand[i][playerHand[i].length - 1]
+            if (playerHand[i] === "A") {
+                playerHand[i] = 11
+            }
+            if (playerHand[i] === "K" || playerHand[i] === "0" || playerHand[i] === "Q" || playerHand[i] === "J") {
+                playerHand[i] = 10
+            }
+            playerHand[i] = parseInt(playerHand[i])
+        }
+    }
+}
 function hitDealer() {
-    const cardEl6 = document.createElement('div')  
+    const cardEl6 = document.createElement('div')
     cardEl6.className = dealCard().face
     document.querySelector("#dealer").append(cardEl6)
     dealerHand.push(cardEl6.className)
-    //    if (counter === 0) {
-    //        for (i = 0; i < dealerHand.length; i++) {
-    //            dealerHand[i] = dealerHand[i].substring(6, dealerHand[i].length)
-    //         }
-    //     }
-    //     if (counter > 0) {
-    //     }
-        cardStringToNum();
-    // for (i = 0; i < dealerHand.length; i++) {
-    //     if (typeof (dealerHand[i]) === "string") {
-    //         console.log(dealerHand)
-    //         dealerHand[i] = dealerHand[i][dealerHand[i].length - 1]
-    //         if (dealerHand[i] === "A") {
-    //             dealerHand[i] = 11
-    //         }
-    //         if (dealerHand[i] === "K" || dealerHand[i] === "10" || dealerHand[i] === "Q" || dealerHand[i] === "J") {
-    //             dealerHand[i] = 10
-    //         }
-    //         dealerHand[i] = parseInt(dealerHand[i], 10)
-    //     }
-    // }
+    // dealerCardStringToNum();
+    // playerCardStringToNum();
+    // console.log(playerSum)
+    // playerHand.forEach(function (cardValue) {
+    //     playerSum += cardValue
+    // })
+    // console.log(playerSum)
+    // dealerHand.forEach(function (cardValue) {
+    //     dealerSum += cardValue
+    // })
+    // compareHands()
+}
+function calcTotal() {
+    dealerCardStringToNum();
+    playerCardStringToNum();
+    console.log(playerSum)
+    playerHand.forEach(function (cardValue) {
+        playerSum += cardValue
+    })
+    console.log(playerSum)
     dealerHand.forEach(function (cardValue) {
         dealerSum += cardValue
     })
-    compareHands()
 }
 function compareHands() {
+    calcTotal();
     console.log("playerSum: ", playerSum, " dealerSum: ", dealerSum)
+    console.log("playerHand: ", playerHand, " dealerHand: ", dealerHand)
     if (playerSum === 21) {
         messageEl.innerHTML = "Blackjack! Return of the Jack!"
         // setTimeout(resetGame, 10000);
@@ -157,8 +144,9 @@ function compareHands() {
     } else {
         messageEl.innerHTML = "Bummer! You Lose!"
         // setTimeout(resetGame, 10000);
-    } 
-} 
+    }
+    messageEl1.innerHTML = `Player Total = ${playerSum}, Dealer Total = ${dealerSum}`
+}
 
 let resetGame = () => {
     location.reload()
@@ -167,6 +155,7 @@ function startGame() {
     renderDeck();
 }
 
+finish.addEventListener('click', compareHands)
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
 restart.addEventListener('click', resetGame)

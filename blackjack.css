@@ -23,6 +23,14 @@ h4 {
     font-family: 'Unbounded';
     color: rgb(0, 120, 136);
 }
+h5 {
+    position: absolute;
+    margin-left: 50px;
+    margin-top: 650px;
+    font-size: 40px;
+    font-family: 'Unbounded';
+    color: rgb(0, 120, 136);
+}
 #table-border {
     border-color: #ffffff; 
     border-style: ridge;
@@ -63,6 +71,19 @@ body {
     color: rgb(255, 1, 1);
     background-color: rgb(86, 14, 14);
     margin-top: 910px;
+    /* margin-right: 1050px; */
+    position: absolute;
+    font-weight: bold;
+    font-family: "Unbounded";
+    font-size: 20px;    
+}
+#finish {
+    height: 45px;
+    width: 75px;
+    text-align: relative;
+    color: rgb(1, 217, 255);
+    background-color: rgb(86, 14, 14);
+    margin-top: 1010px;
     /* margin-right: 1050px; */
     position: absolute;
     font-weight: bold;
