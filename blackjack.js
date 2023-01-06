@@ -131,7 +131,7 @@ function startGame() {
     renderDeck();
 }
 let resetGame = () => {
-    location.reload()
+    location.reload();
 }
 hit.addEventListener('click', hitPlayer);
 stay.addEventListener('click', hitDealer);
