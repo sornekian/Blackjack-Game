@@ -14,16 +14,20 @@ const PLAYERS = {
 let turn, winner, playerHand, dealerHand, bet
 let gameCount = 0
 let winCount = 0
-let earnings = 1000
+let earnings = 5000
 
 const dealerDiv=  document.querySelector('.dealer')
 const hitBtn = document.getElementById('hit')
 const stayBtn = document.getElementById('stay')
-const resetBtnEl = document.createElement('button')
+const startBtn = document.getElementById('start')
+const resetBtn = document.createElement('reset')
+
+const five = document.getElementById('five')
 const ten = document.getElementById('ten')
 const twenty = document.getElementById('twenty')
 const fifty = document.getElementById('fifty')
 const hundred = document.getElementById('hundred')
+const twofifty = document.getElementById('twofifty')
 
 let games = document.getElementById('games')
 let wins = document.getElementById('wins')
@@ -32,9 +36,68 @@ let betAmount = document.getElementById('betAmount')
 
 const betMsg = document.querySelector('.betMsg')
 let betBtns = document.querySelectorAll('.betBtn')
-let message = document.querySelector('h2')
+let message = document.querySelector('h3')
 let statText = document.querySelector('stats')
 let streak = document.querySelector('streak')
+
+five.addEventListener('click', function() {
+    bet = 5
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+ten.addEventListener('click', function() {
+    bet = 10
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+twenty.addEventListener('click', function() {
+    bet = 20
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+fifty.addEventListener('click', function() {
+    bet = 50
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+hundred.addEventListener('click', function() {
+    bet = 100
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+twofifty.addEventListener('click', function() {
+    bet = 250
+    betAmount.innerHTML = `Bet: $${bet}`
+    placeBets()
+})
+
+function init() {
+    dealerDiv.classList.remove('hidden')
+    bank.innerHTML = `Bank: $${earnings}`
+    turn = 1    
+    generateDeck()
+    shuffleDeck()
+    drawHands()
+    renderPlayerHand()
+    renderDealerHand()
+    streak()
+    message.innerText = " "
+}
+function placeBets() {
+    if(earnings != 0) {
+        handleReset()
+        betBtnDisable()
+    } else {
+        message.innerText = "Yikes! Looks like you need more practice! Hit reset to start over."
+    }
+}
+
+hitBtn.addEventListener('click', hit)
+stayBtn.addEventListener('click', stay)
+startBtn.addEventListener('click', handleStart)
+resetBtn.addEventListener('click', handleReset)
+
+
 
 ////
 ////
