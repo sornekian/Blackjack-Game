@@ -14,18 +14,44 @@
 <body>
     <h1>Blackjack</h1>
     <h2>Return of the Jack</h2>
-           
-    <div id="table-border">
-         <div id="table"></div>        
+    <div id="table">
+        <div class="dealer hidden">
+            <div class="dealerHand"></div>
+        </div>
+        
+        <div id="result"></div>   
+
+        <div class="player">
+            <div class="playerHand"></div>
+        </div>            
+    </div>        
+
+
+    <div id="buttonContainer">
+        <div class="buttonArea">
+            <div class="buttons">
+                <button id="startBtn">Start</button>
+                <button id="resetBtn">Reset</button>
+                <button id="hitBtn">Hit</button>
+                <button id="stayBtn">Stay</button>
+            </div>
+        </div>
+        <div class="betBtns">
+            <button class="betBtn" id="five">$5</button>
+            <button class="betBtn" id="ten">$10</button>
+            <button class="betBtn" id="twenty">$20</button>
+            <button class="betBtn" id="fifty">$50</button>
+            <button class="betBtn" id="hundred">$100</button>
+            <button class="betBtn" id="twofifty">$250</button>
+        </div>
     </div>
-    <div id="dealer">Dealer</div>
-    <div id="player">Player 1</div>
-    <div class="container" id="button-container">   
-        <button id="start">Start</button>
-        <button id="restart">Reset</button>
-        <button id="hit">Hit</button>
-        <button id="stay">Stay</button>
-        <button id="finish">Done</button>
-    </div>
+
+    <ul class="streak">
+        <li id="games">Games Played - </li>
+        <li id="wins"> Total Wins - </li>
+        <li id="bank">Money Left - </li>
+        <li id="betAmount">Current Bet - </li>
+    </ul>
+
 </body>
 </html>

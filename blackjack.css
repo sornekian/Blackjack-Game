@@ -1,26 +1,26 @@
 h1 {
     text-align: center;
     color: rgb(201, 119, 11);
-    position: absolute;
     font-size: 65px;
-    margin-top: auto;
-    font-family: 'Unbounded';    
+    margin: 1rem 0;
+    font-family: 'Unbounded'; 
+
 }
 h2 {
     text-align: center;
     color:rgb(230, 165, 79);
-    position: absolute;
-    margin-top: 90px;
+    margin: 1rem 0;
     font-size: 27px;
     font-family: 'Unbounded';
 }
-h4 {
-    position: absolute;
-    margin-left: 50px;
-    margin-top: 600px;
+#result {
+    margin: 0;
     font-size: 40px;
     font-family: 'Unbounded';
     color: rgb(215, 203, 176);
+    /* height: 3rem; */
+    text-align: center;
+    height: 6%;
 }
 h5 {
     position: absolute;
@@ -30,31 +30,28 @@ h5 {
     font-family: 'Unbounded';
     color: rgb(215, 203, 176);
 }
-#table-border {
-    border-color: #ffffff; 
-    border-style: ridge;
-    border-radius: 850px;
-    margin-top: 200px;
-    background-color: rgb(86, 14, 14);
-}
 #table {
-    height: 700px;
-    width: 1450px;
-    border-radius: 75%;
-    margin-top: 150px;    
+    height: 51rem;
+    width: 95%;
+    border-radius: 20rem;
+    border:rgb(255, 255, 255) 5px solid;
+    background-color: rgb(86, 14, 14);
+    margin: 1rem 0.5rem;
 }
 body {
-    justify-content: center;
+    justify-content: space-evenly;
     display: flex;
     background-color: #7D7D7D;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25'%3E%3Cdefs%3E%3ClinearGradient id='a' gradientUnits='userSpaceOnUse' x1='0' x2='0' y1='0' y2='100%25' gradientTransform='rotate(180,1008,610)'%3E%3Cstop offset='0' stop-color='%237D7D7D'/%3E%3Cstop offset='1' stop-color='%23010404'/%3E%3C/linearGradient%3E%3Cpattern patternUnits='userSpaceOnUse' id='b' width='300' height='250' x='0' y='0' viewBox='0 0 1080 900'%3E%3Cg fill-opacity='0.05'%3E%3Cpolygon fill='%23444' points='90 150 0 300 180 300'/%3E%3Cpolygon points='90 150 180 0 0 0'/%3E%3Cpolygon fill='%23AAA' points='270 150 360 0 180 0'/%3E%3Cpolygon fill='%23DDD' points='450 150 360 300 540 300'/%3E%3Cpolygon fill='%23999' points='450 150 540 0 360 0'/%3E%3Cpolygon points='630 150 540 300 720 300'/%3E%3Cpolygon fill='%23DDD' points='630 150 720 0 540 0'/%3E%3Cpolygon fill='%23444' points='810 150 720 300 900 300'/%3E%3Cpolygon fill='%23FFF' points='810 150 900 0 720 0'/%3E%3Cpolygon fill='%23DDD' points='990 150 900 300 1080 300'/%3E%3Cpolygon fill='%23444' points='990 150 1080 0 900 0'/%3E%3Cpolygon fill='%23DDD' points='90 450 0 600 180 600'/%3E%3Cpolygon points='90 450 180 300 0 300'/%3E%3Cpolygon fill='%23666' points='270 450 180 600 360 600'/%3E%3Cpolygon fill='%23AAA' points='270 450 360 300 180 300'/%3E%3Cpolygon fill='%23DDD' points='450 450 360 600 540 600'/%3E%3Cpolygon fill='%23999' points='450 450 540 300 360 300'/%3E%3Cpolygon fill='%23999' points='630 450 540 600 720 600'/%3E%3Cpolygon fill='%23FFF' points='630 450 720 300 540 300'/%3E%3Cpolygon points='810 450 720 600 900 600'/%3E%3Cpolygon fill='%23DDD' points='810 450 900 300 720 300'/%3E%3Cpolygon fill='%23AAA' points='990 450 900 600 1080 600'/%3E%3Cpolygon fill='%23444' points='990 450 1080 300 900 300'/%3E%3Cpolygon fill='%23222' points='90 750 0 900 180 900'/%3E%3Cpolygon points='270 750 180 900 360 900'/%3E%3Cpolygon fill='%23DDD' points='270 750 360 600 180 600'/%3E%3Cpolygon points='450 750 540 600 360 600'/%3E%3Cpolygon points='630 750 540 900 720 900'/%3E%3Cpolygon fill='%23444' points='630 750 720 600 540 600'/%3E%3Cpolygon fill='%23AAA' points='810 750 720 900 900 900'/%3E%3Cpolygon fill='%23666' points='810 750 900 600 720 600'/%3E%3Cpolygon fill='%23999' points='990 750 900 900 1080 900'/%3E%3Cpolygon fill='%23999' points='180 0 90 150 270 150'/%3E%3Cpolygon fill='%23444' points='360 0 270 150 450 150'/%3E%3Cpolygon fill='%23FFF' points='540 0 450 150 630 150'/%3E%3Cpolygon points='900 0 810 150 990 150'/%3E%3Cpolygon fill='%23222' points='0 300 -90 450 90 450'/%3E%3Cpolygon fill='%23FFF' points='0 300 90 150 -90 150'/%3E%3Cpolygon fill='%23FFF' points='180 300 90 450 270 450'/%3E%3Cpolygon fill='%23666' points='180 300 270 150 90 150'/%3E%3Cpolygon fill='%23222' points='360 300 270 450 450 450'/%3E%3Cpolygon fill='%23FFF' points='360 300 450 150 270 150'/%3E%3Cpolygon fill='%23444' points='540 300 450 450 630 450'/%3E%3Cpolygon fill='%23222' points='540 300 630 150 450 150'/%3E%3Cpolygon fill='%23AAA' points='720 300 630 450 810 450'/%3E%3Cpolygon fill='%23666' points='720 300 810 150 630 150'/%3E%3Cpolygon fill='%23FFF' points='900 300 810 450 990 450'/%3E%3Cpolygon fill='%23999' points='900 300 990 150 810 150'/%3E%3Cpolygon points='0 600 -90 750 90 750'/%3E%3Cpolygon fill='%23666' points='0 600 90 450 -90 450'/%3E%3Cpolygon fill='%23AAA' points='180 600 90 750 270 750'/%3E%3Cpolygon fill='%23444' points='180 600 270 450 90 450'/%3E%3Cpolygon fill='%23444' points='360 600 270 750 450 750'/%3E%3Cpolygon fill='%23999' points='360 600 450 450 270 450'/%3E%3Cpolygon fill='%23666' points='540 600 630 450 450 450'/%3E%3Cpolygon fill='%23222' points='720 600 630 750 810 750'/%3E%3Cpolygon fill='%23FFF' points='900 600 810 750 990 750'/%3E%3Cpolygon fill='%23222' points='900 600 990 450 810 450'/%3E%3Cpolygon fill='%23DDD' points='0 900 90 750 -90 750'/%3E%3Cpolygon fill='%23444' points='180 900 270 750 90 750'/%3E%3Cpolygon fill='%23FFF' points='360 900 450 750 270 750'/%3E%3Cpolygon fill='%23AAA' points='540 900 630 750 450 750'/%3E%3Cpolygon fill='%23FFF' points='720 900 810 750 630 750'/%3E%3Cpolygon fill='%23222' points='900 900 990 750 810 750'/%3E%3Cpolygon fill='%23222' points='1080 300 990 450 1170 450'/%3E%3Cpolygon fill='%23FFF' points='1080 300 1170 150 990 150'/%3E%3Cpolygon points='1080 600 990 750 1170 750'/%3E%3Cpolygon fill='%23666' points='1080 600 1170 450 990 450'/%3E%3Cpolygon fill='%23DDD' points='1080 900 1170 750 990 750'/%3E%3C/g%3E%3C/pattern%3E%3C/defs%3E%3Crect x='0' y='0' fill='url(%23a)' width='100%25' height='100%25'/%3E%3Crect x='0' y='0' fill='url(%23b)' width='100%25' height='100%25'/%3E%3C/svg%3E");
     background-attachment: fixed;
     background-size: cover;
+    flex-direction: column;
+    align-items: center;
 }
-#hit {
+.hit {
     height: 45px;
     width: 75px;
-    color: rgb(204, 0, 0);
+    color: rgb(67, 213, 71);
     background-color: rgb(86, 14, 14);
     margin-top: 825px;
     position: absolute;
@@ -62,11 +59,11 @@ body {
     font-family: "Unbounded";
     font-size: 25px;
 }
-#stay {
+.stay {
     height: 45px;
     width: 75px;
     text-align: relative;
-    color: rgb(1, 9, 255);
+    color: rgb(173, 20, 207);
     background-color: rgb(86, 14, 14);
     margin-top: 870px;
     position: absolute;
@@ -74,34 +71,15 @@ body {
     font-family: "Unbounded";
     font-size: 20px;    
 }
-#finish {
-    height: 45px;
-    width: 75px;
-    text-align: relative;
-    color: rgb(255, 98, 1);
-    background-color: rgb(86, 14, 14);
-    margin-top: 910px;
-    position: absolute;
-    font-weight: bold;
-    font-family: "Unbounded";
-    font-size: 20px;    
-}
-#start {
+#startBtn {
     height: 60px;
     text-align: relative;
     color: rgb(1, 204, 255);
-    background-color: rgb(86, 14, 14);
-    margin-top: 70px;
-    margin-left: 250px;
-    position: absolute;
     font-weight: bold;
     font-family: "Unbounded";
-    font-size: 30px;
-    border: none;
     padding: 0;
-    background: none;
 }
-#restart {
+.restart {
     height: 60px;
     text-align: relative;
     color: rgb(1, 204, 255);
@@ -116,48 +94,170 @@ body {
     padding: 0;
     background: none;
 }
-#button-container {
-    position: absolute;
-    margin-left: 900px;
+.buttonArea {
+    grid-area: buttons;
+    justify-content: center;
+    align-items: center;
 }
-#player {
-    position: absolute;
-    margin-top: 840px;
-    margin-right: 130px;
-    font-family: 'Dancing Script';
-    font-size: 50px;
+.buttons {
     display: flex;
-    color: rgb(221, 197, 144);    
+    height: 4rem;
+    width: 100%;
+    height: 100%;
+    justify-content: space-evenly;
+    
 }
-#dealer {
-    position: absolute;
-    margin-top: 265px;
-    margin-right: 90px;
+.player {
     font-family: 'Dancing Script';
     font-size: 50px;
     display: flex;
     color: rgb(221, 197, 144);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 100%;
+    height: 47%;    
 }
-.card {
+.dealer {
+    font-family: 'Dancing Script';
+    font-size: 50px;
+    display: flex;
+    color: rgb(221, 197, 144);
+    height: 47%;
+    width: 100%;
+    justify-content: center;
+    align-items:flex-start;
+}
+.dealerHand > div {
+    justify-content: space-evenly;
+    margin: 0 .5rem 0 .5rem;
+}
+.dealerHand {
+    grid-area: dealer;
+    display: flex;
+    position: relative;
+    /* flex-wrap: wrap; */
+    height: fit-content;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    /* height: 0.9em; */
+    /* width: 23.3em; */
+    
+}
+.playerHand {
+    grid-area: player;
+    display: flex;
+    position: relative;
+    /* flex-wrap: wrap; */
+    height: fit-content;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    /* height: 2.9em; */
+    /* width: 2.3em; */
+    
+}
+.playerHand > div {
+    justify-content: space-evenly;
+    margin: 0 .5rem 0 .5rem;
+}
+.stats {
+    grid-row-start: stats;
+    grid-row-end: 5;
+    grid-column-start: stats;
+    grid-column-end: stats;
+    /* border: 2px white solid; */
+    bottom: .5fr;
+    margin: 25px;
+}
+
+.streak {
+    grid-row-start: stats;
+    grid-column-start: stats;
+    grid-column-end: stats;
+    font: 1.2rem;
+    font-style: normal;
+    padding: .6rem .6rem;
+    margin: 1rem 0rem 0rem 1rem;
+    width: 8rem;
+    height: fit-content;
+    display: inline-block;
+    justify-content: space-around;
+    border: 1px solid white;
+    font-size: 15px;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+li {
+    list-style: none;
+    margin-bottom: 10px;
+    color: white;
+}
+/* .card {
     height: 2.9em;
     width: 2.3em;
     background-color: rgb(205, 206, 229);
+} */
+.buttonArea {
+    grid-area: buttons;
+    justify-content: center;
+    align-items: center;
 }
 
+.buttons {
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    justify-content: space-evenly;
+}
+button {
+    color: white;
+    font-size: 1.2rem;
+    height: 3.5rem; 
+    width: 5rem;
+    border-radius: 30%;
+    font-family: 'PT Sans Caption', sans-serif;
+    background-color: rgb(0, 0, 0);
+    /* border: 2px solid rgb(0, 129, 0); */
+    cursor: pointer;
+    box-shadow: 1.5px 5px rgb(0, 169, 0);
+}
+#button-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 2rem;
 
+}
 
+button:active {
+    background-color: rgb(0, 0, 0);
+    transform: translateY(5px);
+  }
 
+button:disabled {
+    background-color: rgb(0, 0, 0);
+    transform: translateY(5px);
+}
+.betBtns {
+    grid-row-start: betBtn;
+    grid-column-start: stats;
+    grid-column-end: stats;
+    grid-area: betBtn;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+.betBtns button {
+    grid-area: betBtn;
+    height: 2rem;
+    width: 4rem;
+    font-size: 1rem;
+    padding: 2px;
+}
