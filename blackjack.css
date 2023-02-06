@@ -13,15 +13,6 @@ h2 {
     font-size: 27px;
     font-family: 'Unbounded';
 }
-#result {
-    margin: 0;
-    font-size: 40px;
-    font-family: 'Unbounded';
-    color: rgb(215, 203, 176);
-    /* height: 3rem; */
-    text-align: center;
-    height: 6%;
-}
 h5 {
     position: absolute;
     margin-left: 50px;
@@ -29,6 +20,14 @@ h5 {
     font-size: 40px;
     font-family: 'Unbounded';
     color: rgb(215, 203, 176);
+}
+#result {
+    margin: 0;
+    font-size: 40px;
+    font-family: 'Unbounded';
+    color: rgb(215, 203, 176);
+    text-align: center;
+    height: 6%;
 }
 #table {
     height: 51rem;
@@ -125,14 +124,10 @@ body {
     grid-area: dealer;
     display: flex;
     position: relative;
-    /* flex-wrap: wrap; */
     height: fit-content;
     padding: 10px;
     justify-content: center;
-    align-items: center;
-    /* height: 0.9em; */
-    /* width: 23.3em; */
-    
+    align-items: center;    
 }
 .playerHand {
     grid-area: player;
@@ -189,7 +184,6 @@ li {
     justify-content: center;
     align-items: center;
 }
-
 .buttons {
     display: flex;
     height: 4rem;
@@ -216,12 +210,10 @@ button {
     align-items: flex-end;
     margin-top: 2rem;
 
-}
-
-button:active {
+}button:active {
     background-color: rgb(0, 0, 0);
     transform: translateY(5px);
-  }
+}
 
 button:disabled {
     background-color: rgb(0, 0, 0);
@@ -236,7 +228,6 @@ button:disabled {
     flex-wrap: wrap;
     justify-content: space-around;
 }
-
 .betBtns button {
     grid-area: betBtn;
     height: 2rem;
