@@ -48,29 +48,6 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.hit {
-    height: 45px;
-    width: 75px;
-    color: rgb(67, 213, 71);
-    background-color: rgb(86, 14, 14);
-    margin-top: 825px;
-    position: absolute;
-    font-weight: bold;
-    font-family: "Unbounded";
-    font-size: 25px;
-}
-.stay {
-    height: 45px;
-    width: 75px;
-    text-align: relative;
-    color: rgb(173, 20, 207);
-    background-color: rgb(86, 14, 14);
-    margin-top: 870px;
-    position: absolute;
-    font-weight: bold;
-    font-family: "Unbounded";
-    font-size: 20px;    
-}
 #startBtn {
     height: 60px;
     text-align: relative;
@@ -79,20 +56,32 @@ body {
     font-family: "Unbounded";
     padding: 0;
 }
-.restart {
+#resetBtn {
     height: 60px;
     text-align: relative;
-    color: rgb(1, 204, 255);
-    background-color: rgb(86, 14, 14);
-    margin-top: 120px;
-    margin-left: 245px;
-    position: absolute;
+    color: rgb(255, 1, 1);
     font-weight: bold;
     font-family: "Unbounded";
-    font-size: 30px;
-    border: none;
     padding: 0;
-    background: none;
+}
+#hitBtn {
+    height: 60px;
+    text-align: relative;
+    color: rgb(11, 0, 220);
+    font-weight: bold;
+    font-family: "Unbounded";
+    padding: 0;
+}
+#stayBtn {
+    height: 60px;
+    text-align: relative;
+    color: rgb(255, 132, 1);
+    font-weight: bold;
+    font-family: "Unbounded";
+    padding: 0;
+}
+.betBtns {
+    color: green;
 }
 .buttonArea {
     grid-area: buttons;
@@ -171,12 +160,11 @@ body {
     bottom: .5fr;
     margin: 25px;
 }
-
 .streak {
     grid-row-start: stats;
     grid-column-start: stats;
     grid-column-end: stats;
-    font: 1.2rem;
+    font: 0.5rem;
     font-style: normal;
     padding: .6rem .6rem;
     margin: 1rem 0rem 0rem 1rem;
@@ -189,18 +177,13 @@ body {
     position: absolute;
     top: 1rem;
     right: 1rem;
+    
 }
-
 li {
     list-style: none;
     margin-bottom: 10px;
     color: white;
 }
-/* .card {
-    height: 2.9em;
-    width: 2.3em;
-    background-color: rgb(205, 206, 229);
-} */
 .buttonArea {
     grid-area: buttons;
     justify-content: center;
@@ -220,10 +203,10 @@ button {
     width: 5rem;
     border-radius: 30%;
     font-family: 'PT Sans Caption', sans-serif;
-    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.364);
     /* border: 2px solid rgb(0, 129, 0); */
     cursor: pointer;
-    box-shadow: 1.5px 5px rgb(0, 169, 0);
+    box-shadow: 1.5px 5px rgb(0, 0, 0);
 }
 #button-container {
     display: flex;
@@ -260,4 +243,6 @@ button:disabled {
     width: 4rem;
     font-size: 1rem;
     padding: 2px;
+    color: rgb(0, 161, 0);
+    font-weight: bold;
 }
