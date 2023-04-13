@@ -22,12 +22,10 @@ const hitBtn = document.getElementById('hitBtn')
 const stayBtn = document.getElementById('stayBtn')
 const resetBtn = document.getElementById('resetBtn')
 const startBtn = document.getElementById('startBtn')
-const five = document.getElementById('five')
-const ten = document.getElementById('ten')
-const twenty = document.getElementById('twenty')
 const fifty = document.getElementById('fifty')
 const hundred = document.getElementById('hundred')
 const twofifty = document.getElementById('twofifty')
+const fivehundred = document.getElementById('fivehundred')
 
 let games = document.getElementById('games')
 let wins = document.getElementById('wins')
@@ -45,21 +43,6 @@ stayBtn.addEventListener('click', stay)
 resetBtn.addEventListener('click', handleReset)
 startBtn.addEventListener('click', startGame)
 
-five.addEventListener('click', function() {
-    bet = 5
-    betAmount.innerHTML = `Bet - $${bet}`
-    placeBets()
-})
-ten.addEventListener('click', function() {
-    bet = 10
-    betAmount.innerHTML = `Bet - $${bet}`
-    placeBets()
-})
-twenty.addEventListener('click', function() {
-    bet = 20
-    betAmount.innerHTML = `Bet - $${bet}`
-    placeBets()
-})
 fifty.addEventListener('click', function() {
     bet = 50
     betAmount.innerHTML = `Bet - $${bet}`
@@ -72,6 +55,11 @@ hundred.addEventListener('click', function() {
 })
 twofifty.addEventListener('click', function() {
     bet = 250
+    betAmount.innerHTML = `Bet - $${bet}`
+    placeBets()
+})
+fivehundred.addEventListener('click', function() {
+    bet = 500
     betAmount.innerHTML = `Bet - $${bet}`
     placeBets()
 })
@@ -88,7 +76,6 @@ function init() {
     drawHands()
     renderPlayerHand()
     renderDealerHand()
-    // winStreak()
     message.innerText = " "
 }
 function placeBets() {
