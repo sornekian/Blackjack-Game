@@ -12,7 +12,7 @@ const PLAYERS = {
     },
 }
 
-let turn, winner, playerHand, dealerHand, bet
+let turn, winner, playerHand, dealerHand, bet = 0 // initialize bet with 0
 let gameCount = 0
 let winCount = 0
 let winnings = 3000
@@ -21,11 +21,12 @@ const dealerDiv=  document.querySelector('.dealer')
 const hitBtn = document.getElementById('hitBtn')
 const stayBtn = document.getElementById('stayBtn')
 const resetBtn = document.getElementById('resetBtn')
-const startBtn = document.getElementById('startBtn')
 const fifty = document.getElementById('fifty')
 const hundred = document.getElementById('hundred')
 const twofifty = document.getElementById('twofifty')
 const fivehundred = document.getElementById('fivehundred')
+const $ = document.querySelector.bind(document);
+
 
 let games = document.getElementById('games')
 let wins = document.getElementById('wins')
@@ -41,7 +42,6 @@ let streak = document.querySelector('streak')
 hitBtn.addEventListener('click', hit)
 stayBtn.addEventListener('click', stay)
 resetBtn.addEventListener('click', handleReset)
-startBtn.addEventListener('click', startGame)
 
 fifty.addEventListener('click', function() {
     bet = 50
@@ -64,13 +64,15 @@ fivehundred.addEventListener('click', function() {
     placeBets()
 })
 function startGame() {
+    document.getElementById("start-button").style.display = "none";
     init()
 }
 
 function init() {
     dealerDiv.classList.remove('hidden')
     bank.innerHTML = `Bank - $${winnings}`
-    turn = 1    
+    turn = 1
+    deck.length = 0 
     generateDeck()
     shuffleDeck()
     drawHands()
@@ -80,11 +82,16 @@ function init() {
 }
 function placeBets() {
     if(winnings === 0) {
-        handleReset()
-        betBtnDisable()
-        message.innerText = "Yikes! Looks like you need more practice! Hit reset to start over."
+      handleReset()
+      betBtnDisable()
+      message.innerText = "Yikes! Looks like you need more practice! Hit reset to start over."
+    } else if (bet > 0) {
+      betMsg.innerHTML = `Your bet is $${bet}. Good luck!`
+      bank.innerHTML = `Bank - $${winnings - bet}`
+      betBtnDisable()
     }
-}
+  }
+  
 function generateDeck() {
     suits.forEach(suit => {
         faces.forEach(face => {
@@ -137,7 +144,6 @@ function renderDealerHand() {
         document.querySelector('.dealerHand').append(cardEl)
     })
 }
-
 
 function hit() {
     playerHand.push(deck.shift())
@@ -225,26 +231,12 @@ function checkWinner() {
         betBtnEnable()
     }
 } 
-
 function handleReset() {
-    // resetBtn.remove()
+    gameCount += 1;
+    games.innerHTML = `Games Played: ${gameCount}`;
     playBtnsEnable()
     init()
 }
-
-// function winStreak() {
-//     if (betMsg.innerHTML = " ") {
-//         if(((sumHand(dealerHand) > 21) && (sumHand(playerHand) <= 21)) || ((sumHand(playerHand) > sumHand(dealerHand)) && (sumHand(playerHand) <= 21))) {
-//             gameCount += 1
-//             winCount += 1
-//             games.innerText = `Games: ${gameCount}`
-//             wins.innerText = `Wins: ${winCount}`
-//         } else {
-//             gameCount += 1
-//             games.innerText = `Games: ${gameCount}`
-//         }
-//     }
-// }
 
 function calcWinnings() {
    if((sumHand(dealerHand) > 21) || ((sumHand(playerHand) > sumHand(dealerHand)) && (sumHand(playerHand) <= 21))) {
@@ -257,13 +249,12 @@ function calcWinnings() {
 }
 
 function betBtnDisable() {
-    five.setAttribute("disabled", "")
-    ten.setAttribute("disabled", "")
-    twenty.setAttribute("disabled", "")
-    fifty.setAttribute("disabled", "")
-    hundred.setAttribute("disabled", "")
-    twofifty.setAttribute("disabled", "")
-}
+    fifty.disabled = true
+    hundred.disabled = true
+    twofifty.disabled = true
+    fivehundred.disabled = true
+  }
+  
 function betBtnEnable() {
     five.removeAttribute("disabled")
     ten.removeAttribute("disabled")
