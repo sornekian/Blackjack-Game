@@ -24,6 +24,11 @@ h5 {
     color: rgb(215, 203, 176);
 }
 
+.card {
+    width: 100px;
+    height: 135px;
+}
+
 #result {
     margin: 0;
     font-size: 20px;
@@ -144,7 +149,6 @@ body {
     padding: 10px;
     justify-content: center;
     align-items: center;
-    margin-top: 57px;
 }
 
 .playerHand {
@@ -279,6 +283,7 @@ button:disabled {
     .dealer,
     .player {
         margin-bottom: 2em;
+        margin-top: 1rem;
     }
 
     .buttons {
