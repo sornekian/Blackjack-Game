@@ -131,7 +131,7 @@ body {
     display: flex;
     color: rgb(221, 197, 144);
     height: 47%;
-    width: 100%;
+    width: 105%;
     justify-content: center;
     align-items: flex-start;
 }
@@ -276,8 +276,9 @@ button:disabled {
     }
 
     #table {
-        height: auto;
+        height: 50%;
         flex-direction: column;
+        width: 100%;
     }
 
     .dealer,
