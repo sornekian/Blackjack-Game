@@ -212,6 +212,7 @@ li {
     height: 4rem;
     width: 100%;
     justify-content: space-evenly;
+    padding: 5px;
 }
 
 button {
